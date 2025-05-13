@@ -1,0 +1,31 @@
+.carousel-slide {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Adjust height as needed */
+    overflow: hidden;
+    z-index: -10;
+  }
+  
+  .carousel-image {
+    width: 100vw;
+    height: 70%;
+    object-fit: cover;
+  }
+  
+  .carousel-caption {
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  .carousel-caption h2 {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+  
+  .carousel-caption p {
+    font-size: 1.2rem;
+  }
+  
