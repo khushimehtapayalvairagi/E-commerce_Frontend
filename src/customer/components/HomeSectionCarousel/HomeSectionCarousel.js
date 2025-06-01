@@ -16,9 +16,10 @@ const HomeSectionCarousel = ({data,sectionName}) => {
     1024: { items: 5.5 },
   };
 
-  const items = data.slice(0, 10).map((item, i) => (
-    <HomeSectionCard key={i} product={item} />
-  ));
+  const items = (data || []).slice(0, 10).map((item, i) => (
+  <HomeSectionCard key={i} product={item} />
+));
+
 
   const slidePrev = () => {
     if (carouselRef.current) {

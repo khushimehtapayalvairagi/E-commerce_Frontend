@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
     Dialog,
     DialogBackdrop,
@@ -19,7 +19,7 @@ import ProductCard from './ProductCard'
 import { mensKurta } from '../../../Data/MensKurta.js'
 import { filters, singleFilter, sortOptions } from './FilterData.js';
 import FilterListIcon from '@mui/icons-material/FilterList';
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 
 
 import FormControl from '@mui/material/FormControl';
@@ -28,6 +28,9 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Radio from '@mui/material/Radio';
 import { Navigate, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { findProducts } from '../../../State/Product/Action.js'
+import { Pagination } from '@mui/material'
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -37,7 +40,35 @@ function classNames(...classes) {
 export default function Product() {
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
     const location =useLocation()
-    const navigate =useNavigate()
+    const navigate =useNavigate();
+const products   = useSelector(state => state.customerProduct.products);
+const totalPages = useSelector(state => state.customerProduct.totalPages);
+
+
+    const param =useParams();
+     const dispatch = useDispatch();
+
+     const decodedQueryString = decodeURIComponent(location.search);
+     const searchParams = new URLSearchParams(decodedQueryString);
+     const colorValue =searchParams.get("color")
+     const sizeValue =searchParams.get("size");
+     const priceValue = searchParams.get("price");
+     const discount =searchParams.get("discount");
+     const sortValue = searchParams.get("sort");
+     const pageNumber = parseInt(searchParams.get("page")) || 1;
+
+     const stock =searchParams.get("stock");
+     
+    
+
+     const handlePaginationChange=(event,value)=>{
+        const searchParams =new URLSearchParams(location.search)
+        searchParams.set("page" ,value);
+        const query=searchParams.toString();
+        navigate({search:`?${query}`})
+     }
+
+ 
    
    
    
@@ -76,6 +107,45 @@ export default function Product() {
             const query= searchParams.toString();
             navigate({search:`?${query}`})
         }
+useEffect(() => {
+ const [minPrice, maxPrice] = (priceValue && priceValue.includes("-")) 
+  ? priceValue.split("-").map(Number)
+  : [0, 10000];
+  const data = {
+    catogery: param.lavelThree,
+    colors: colorValue ? colorValue.split(",") : [],
+    sizes: sizeValue ? sizeValue.split(",") : [],
+    minPrice,
+    maxPrice,
+    minDiscount: discount ? Number(discount) : 0,
+    sort: sortValue || "price_low",
+    pageNumber,
+    pageSize: 10,
+    stock: stock ,
+  };
+  console.log('Dispatching findProducts with:', data);
+  dispatch(findProducts(data));
+ } ,
+[
+  param.lavelThree,
+  colorValue,
+  sizeValue,
+  priceValue,
+  discount,
+  sortValue,
+  
+  pageNumber,
+  stock,
+  dispatch,
+ ]);
+
+
+useEffect(() => {
+  console.log("Products:", products);
+  console.log("Total Pages:", totalPages);
+}, [products, totalPages]);
+
+
 
 
 
@@ -357,13 +427,25 @@ export default function Product() {
                             </form>
                                </div>
                             {/* Product grid */}
-                            <div className="lg:col-span-4 w-full">
-                                <div className='flex flex-wrap justify-center bg-white py-5'>
-                                    {mensKurta.map((item) => <ProductCard product={item} />)}
-                                </div>
+                           <div className="lg:col-span-4 w-full">
+ <div className="lg:col-span-4 w-full">
+  <div className="flex flex-wrap justify-center bg-white py-5">
+    {Array.isArray(products) && products.map((product) => (
+      <ProductCard key={product._id} product={product} />
+    ))}
+  </div>
+</div>
+</div>
 
-                            </div>
                         </div>
+                    </section>
+
+                    <section className='w-full px=[3.6rem]'> 
+                        <div className='px-4 py-5 flex justify-center'>
+                            <Pagination count={totalPages} color="primary" onChange={handlePaginationChange} />
+
+                        </div>
+
                     </section>
                 </main>
             </div>

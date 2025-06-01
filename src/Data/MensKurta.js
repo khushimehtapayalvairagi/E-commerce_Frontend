@@ -26,7 +26,7 @@ export const mensKurta=[
         "quantity":100,
         "topLevelCatogery":"Men",
         "secondLevelCatogery":"Clothing",
-        "thirdLevelCatogery":"mens_kurta",
+        "thirdLevelCatogery":"menskurta",
         "description": "&traditional garment embroyding elegance and grace"
     },
     {
@@ -35,7 +35,7 @@ export const mensKurta=[
         "brand": "Majestic man" ,
         "title": "Men Printed Pure Cotton Straight Kurta ",
         "color":"Green",
-        "discountesPresent" : 64,
+        "discountPresent" : 64,
         "price": 1599,
         "discountedPrice": 499,
 
@@ -58,7 +58,7 @@ export const mensKurta=[
         "quantity":100,
         "topLevelCatogery":"Men",
         "secondLevelCatogery":"Clothing",
-        "thirdLevelCatogery":"mens_kurta",
+        "thirdLevelCatogery":"menskurta",
         "description": "&traditional garment embroyding elegance and grace"
     },
     {
@@ -67,7 +67,7 @@ export const mensKurta=[
         "brand": "5G liman" ,
         "title": "Men Printed Pure Cotton Straight Kurta ",
         "color":"pink",
-        "discountesPresent" : 64,
+        "discountPresent" : 64,
         "price": 1400,
         "discountedPrice": 499,
         "size": [
@@ -88,7 +88,7 @@ export const mensKurta=[
         "quantity":100,
         "topLevelCatogery":"Men",
         "secondLevelCatogery":"Clothing",
-        "thirdLevelCatogery":"mens_kurta",
+        "thirdLevelCatogery":"menskurta",
         "description": "&traditional garment embroyding elegance and grace"
     },
     {
@@ -118,7 +118,7 @@ export const mensKurta=[
         "quantity":100,
         "topLevelCatogery":"Men",
         "secondLevelCatogery":"Clothing",
-        "thirdLevelCatogery":"mens_kurta",
+        "thirdLevelCatogery":"mensKurta",
         "description": "&traditional garment embroyding elegance and grace"
     },
     {
@@ -127,7 +127,7 @@ export const mensKurta=[
         "brand": "Majestic Man" ,
         "title": "Men Printed Pure Cotton Straight Kurta ",
         "color":"Yellow",
-        "discountesPresent" : 64,
+        "discountPresent" : 64,
         "price": 1499,
         "discountedPrice": 499,
         "size": [
@@ -136,6 +136,7 @@ export const mensKurta=[
                 "quantity": 20
             },
             {
+     
                 "name":"M",
                 "quantity": 20
             },
@@ -148,7 +149,7 @@ export const mensKurta=[
         "quantity":100,
         "topLevelCatogery":"Men",
         "secondLevelCatogery":"Clothing",
-        "thirdLevelCatogery":"mens_kurta",
+        "thirdLevelCatogery":"mensKurta",
         "description": "&traditional garment embroyding elegance and grace"
     },
     {
@@ -157,7 +158,7 @@ export const mensKurta=[
         "brand": "Majestic Man" ,
         "title": "Men Printed Pure Cotton Straight Kurta ",
         "color":"Gray",
-        "discountesPresent" : 64,
+        "discountPresent" : 64,
         "price": 1499,
         "discountedPrice": 499,
         "size": [
@@ -178,7 +179,7 @@ export const mensKurta=[
         "quantity":100,
         "topLevelCatogery":"Men",
         "secondLevelCatogery":"Clothing",
-        "thirdLevelCatogery":"mens_kurta",
+        "thirdLevelCatogery":"mensKurta",
         "description": "&traditional garment embroyding elegance and grace"
     },
     {
@@ -187,7 +188,7 @@ export const mensKurta=[
         "brand": "peter England" ,
         "title": "Men Printed Pure Cotton Straight Kurta ",
         "color":"SkyBlue",
-        "discountesPresent" : 64,
+        "discountPresent" : 64,
         "price": 1499,
         "discountedPrice": 499,
         "size": [
@@ -208,7 +209,7 @@ export const mensKurta=[
         "quantity":100,
         "topLevelCatogery":"Men",
         "secondLevelCatogery":"Clothing",
-        "thirdLevelCatogery":"mens_kurta",
+        "thirdLevelCatogery":"menskurta",
         "description": "&traditional garment embroyding elegance and grace"
     },
     {
@@ -217,7 +218,7 @@ export const mensKurta=[
         "brand": "Majestic Man" ,
         "title": "Men Printed Pure Cotton Straight Kurta ",
         "color":"Gray",
-        "discountesPresent" : 64,
+        "discountPresent" : 64,
         "price": 1499,
         "discountedPrice": 499,
         "size": [
@@ -238,7 +239,7 @@ export const mensKurta=[
         "quantity":100,
         "topLevelCatogery":"Men",
         "secondLevelCatogery":"Clothing",
-        "thirdLevelCatogery":"mens_kurta",
+        "thirdLevelCatogery":"menskurta",
         "description": "&traditional garment embroyding elegance and grace"
     },
     
@@ -248,7 +249,7 @@ export const mensKurta=[
         "brand": "peter ENgland" ,
         "title": "Men Printed Pure Cotton Straight Kurta ",
         "color":"peach",
-        "discountesPresent" : 64,
+        "discountPresent" : 64,
         "price": 1499,
         "discountedPrice": 499,
         "size": [
@@ -269,7 +270,7 @@ export const mensKurta=[
         "quantity":100,
         "topLevelCatogery":"Men",
         "secondLevelCatogery":"Clothing",
-        "thirdLevelCatogery":"mens_kurta",
+        "thirdLevelCatogery":"menskurta",
         "description": "&traditional garment embroyding elegance and grace"
     },
     {
@@ -278,7 +279,7 @@ export const mensKurta=[
         "brand": "FuBAR" ,
         "title": "Men Printed Pure Cotton Straight Kurta ",
         "color":"Yellow",
-        "discountesPresent" : 64,
+        "discountPresent" : 64,
         "price": 1499,
         "discountedPrice": 499,
         "size": [
@@ -299,7 +300,7 @@ export const mensKurta=[
         "quantity":100,
         "topLevelCatogery":"Men",
         "secondLevelCatogery":"Clothing",
-        "thirdLevelCatogery":"mens_kurta",
+        "thirdLevelCatogery":"menskurta",
         "description": "&traditional garment embroyding elegance and grace"
     },
     {
@@ -308,7 +309,7 @@ export const mensKurta=[
         "brand": "ALY JOHN" ,
         "title": "Men Printed Pure Cotton Straight Kurta ",
         "color":"Green",
-        "discountesPresent" : 64,
+        "discountPresent" : 64,
         "price": 1599,
         "discountedPrice": 499,
 
@@ -331,7 +332,7 @@ export const mensKurta=[
         "quantity":100,
         "topLevelCatogery":"Men",
         "secondLevelCatogery":"Clothing",
-        "thirdLevelCatogery":"mens_kurta",
+        "thirdLevelCatogery":"menskurta",
         "description": "&traditional garment embroyding elegance and grace"
     },
 ]

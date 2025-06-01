@@ -8,29 +8,24 @@ import Typography from '@mui/material/Typography';
 import { useLocation, useNavigate } from 'react-router-dom';
 import DeliveryAdressForm from './DeliveryAdressForm';
 import OrderSummary from     './OrderSummary';
-
+import { useSearchParams } from 'react-router-dom';
 const steps = ['login', 'Add delivery address', 'Order Summary', 'Payment'];
 
 export default function Checkout() {
-  const location = useLocation();
-  const navigate = useNavigate();
+   const [searchParams, setSearchParams] = useSearchParams();
+  const stepParam = searchParams.get('step');
+  const stepIndex = stepParam ? parseInt(stepParam, 10) : 0;
 
-  const querySearch = new URLSearchParams(location.search);
-  const stepFromParam = parseInt(querySearch.get("step")) || 0;
-
-  const [activeStep, setActiveStep] = React.useState(stepFromParam);
+  const [activeStep, setActiveStep] = React.useState(0);
 
   // Sync URL when step changes
-  React.useEffect(() => {
-    navigate(`?step=${activeStep}`);
-  }, [activeStep, navigate]);
-
-  const handleNext = () => {
-    setActiveStep((prev) => Math.min(prev + 1, steps.length));
-  };
+   React.useEffect(() => {
+    setActiveStep(stepIndex);
+  }, [stepIndex]);
 
   const handleBack = () => {
-    setActiveStep((prev) => Math.max(prev - 1, 0));
+    const newStep = Math.max(activeStep - 1, 0);
+    setSearchParams({ step: newStep.toString() });
   };
 
   return (
@@ -50,9 +45,7 @@ export default function Checkout() {
           </Typography>
         ) : (
           <>
-            <Typography sx={{ mt: 2, mb: 1,textAlign: 'left'  }}>
-              Step {activeStep + 1}
-            </Typography>
+          
             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
               <Button
                 color="inherit"
@@ -73,7 +66,7 @@ export default function Checkout() {
              
             </Box>
             <div className='mt-5'>
-            {activeStep === 2 ? <DeliveryAdressForm /> : <OrderSummary />}
+            {activeStep === 1 ? <DeliveryAdressForm /> : <OrderSummary />}
 
             </div>
           </>

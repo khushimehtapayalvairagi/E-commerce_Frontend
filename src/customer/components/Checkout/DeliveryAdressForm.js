@@ -2,12 +2,21 @@ import { Box, Grid, TextField } from "@mui/material";
 import React from "react";
 import AddressCard from '../AddressCard/AddressCard';
 import Button from '@mui/material/Button';
+import { useDispatch } from "react-redux";
+import { createOrder } from "../../../State/Order/Action";
+import { useNavigate } from "react-router-dom";
 
 const DeliveryAdressForm = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+const handleSubmit = (e) => {
+  e.preventDefault();
+ const data = new FormData(e.target);
+for (let [key, value] of data.entries()) {
+  console.log(`${key}: ${value}`);
+}
 
-    const data = new FormData(e.target);
+
 
     const address = {
       firstName: data.get("firstName"),
@@ -15,10 +24,11 @@ const DeliveryAdressForm = () => {
       streetAddress: data.get("address"),
       city: data.get("city"),
       state: data.get("state"),
-      zipcode: data.get("Zipcode"),
-      mobile: data.get("Phone number"),
+      zipcode: data.get("zipcode"),
+      mobile: data.get("mobile"),
     };
-
+    const orderData={address,navigate}
+       dispatch(createOrder(orderData))
     console.log("address", address);
   };
 
@@ -34,7 +44,8 @@ const DeliveryAdressForm = () => {
       </Grid>
           <Grid item xs={12} lg={7}>
            <Box className="border rounded-s-md shadow-md p-5">
-             <form className="w-full space-x-30">
+           <form className="w-full space-x-30" onSubmit={handleSubmit}>
+
                 <Grid container spacing={3}>
                    <Grid className="bg-sky-200" item xs={12} sm={6}>
                          <TextField
@@ -112,8 +123,8 @@ const DeliveryAdressForm = () => {
                    <Grid item xs={12} sm={6}>
                          <TextField
                           required
-                          id="Zipcode"
-                          name="Zipcode"
+                          id="zipcode"
+                          name="zipcode"
                           label="Zipcode"
                            fullWidth
                            autoComplete="given-name"
@@ -125,8 +136,8 @@ const DeliveryAdressForm = () => {
                    <Grid className="bg-sky-200" item xs={12} sm={6}>
                          <TextField
                           required
-                          id="Phone number"
-                          name="phone number"
+                          id="mobile"
+                          name="mobile"
                           label="Phone number"
                            fullWidth
                            autoComplete="given-name"
@@ -138,7 +149,9 @@ const DeliveryAdressForm = () => {
                    
                    </Grid>
                    <Grid item xs={12} sm={6}>
-                   <Button sx={{mt:2,bgcolor:"RGB(145 85 253)"}} size="large" variant="container">Deliver Here</Button>
+                   <Button sx={{mt:2,bgcolor:"RGB(145 85 253)"}} size="large" variant="contained" 
+                   type="submit"
+                   >Deliver Here</Button>
                    
                                 
                    </Grid>

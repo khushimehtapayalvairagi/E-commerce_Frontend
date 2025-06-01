@@ -7,7 +7,7 @@ import OrderDetails from "../customer/components/order/OrderDetails";
 import Order from "../customer/components/order/Order";
 import Product from "../customer/components/product/Product";
 import Cart from "../customer/components/Cart/Cart";
-import Navigation from "../customer/components/Navigation";
+import Navigation from "../customer/components/navigation/Navigation";
 import ProductDetail from "../customer/components/ProductDetail/ProductDetail";
 
 const CustomerRouter = () => {
